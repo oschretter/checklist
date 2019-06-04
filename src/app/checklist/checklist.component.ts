@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-checklist',
@@ -7,8 +7,18 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./checklist.component.scss']
 })
 export class ChecklistComponent implements OnInit {
-  name = new FormControl('');
-  constructor() { }
+  item: FormGroup;
+  itemType = ['body-care', 'clothes', 'drug'];
+  constructor() {
+    this.item = this.createFormGroup();
+  }
+
+  createFormGroup() {
+    return new FormGroup({
+      itemName: new FormControl(),
+      itemType: new FormControl(),
+    });
+  }
 
   ngOnInit() {
   }

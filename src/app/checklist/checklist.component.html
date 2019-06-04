@@ -3,9 +3,10 @@
  </h1>
 
  <p>Add Item to your List</p>
- <input type=“text” [formControl]=“name">
- <button type=“button” class=“btn btn-primary”>Add</button>
+
+ <input type="text" [formControl]="item">
+ <button type="button" class="btn btn-primary" (click)="addItem()">Add</button>
 
  <ul>
-  <li> {{name.value}</li><button type=“button” class=“btn btn-secondary”>Edit</button>
+  <li [formControl]="item"> {{item.value}}</li><button type="button" class="btn btn-secondary">Edit</button>
  </ul>
